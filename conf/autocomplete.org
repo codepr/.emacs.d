@@ -1,0 +1,15 @@
+#+begin_src emacs-lisp
+;;; autocomplete.org --- Codep's custom helm configuration.
+;;; Commentary:
+;; This file contain my personal Emacs helm settings.
+;;; code:
+(require-package '(auto-complete))
+(require 'auto-complete)
+(require 'auto-complete-config)
+;; ac
+(ac-config-default)
+(setq ac-auto-start 3)
+(global-auto-complete-mode t)
+(setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
+;;; autocomplete.org ends here
+#+end_src
