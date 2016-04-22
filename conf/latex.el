@@ -1,4 +1,3 @@
-#+begin_src emacs-lisp
 ;;; latex.org --- Codep's configuration entry point.
 ;;; Commentary:
 ;; This file contain my personal Emacs configuration
@@ -38,4 +37,3 @@
              (delete '("\\.pdf\\'" . default) org-file-apps)
              (add-to-list 'org-file-apps '("\\.pdf\\'" . "okular %s"))))
 ;;; latex.org ends here
-#+end_src

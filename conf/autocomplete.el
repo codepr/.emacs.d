@@ -1,4 +1,3 @@
-#+begin_src emacs-lisp
 ;;; autocomplete.el --- Codep's custom ac configuration.
 ;;; Commentary:
 ;; Author: Andrea Giacomo Baldan
@@ -31,4 +30,3 @@
 ;; (global-auto-complete-mode t)
 ;; (setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
 ;;; autocomplete.el ends here
-#+end_src

@@ -1,4 +1,3 @@
-#+begin_src emacs-lisp
 ;;; editor.el --- Codep's custom editing configuration.
 ;;; Commentary:
 ;; Author: Andrea Giacomo Baldan
@@ -131,4 +130,3 @@
 ;; abbrevs file
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 ;;; editor.el ends here
-#+end_src

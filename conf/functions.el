@@ -1,4 +1,4 @@
-#+begin_src emacs-lisp
+
 ;;; functions.org --- Codep's custom functions.
 ;;; Commentary:
 ;; This file contain my personal emacs enhanced functions.
@@ -162,4 +162,3 @@ Comment the current line if there's no active region."
   (interactive)
   (byte-recompile-directory "~/.emacs.d" 0))
 ;;; functions.org ends here
-#+end_src

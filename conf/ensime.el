@@ -1,4 +1,3 @@
-#+begin_src emacs-lisp
 (require-package '(ensime scala-mode2))
 (require 'scala-mode2)
 (setq exec-path (append exec-path '("/usr/local/bin")))
@@ -9,4 +8,3 @@
 (setq ensime-sem-high-enabled-p nil)
 (setq debug-on-error t)
 (setq ensime-typecheck-when-idle nil)
-#+end_src

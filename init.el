@@ -4,11 +4,9 @@
 ;;; code:
 (setq user-full-name "Andrea Giacomo Baldan"
       user-mail-address "a.g.baldan@gmail.com")
-;; Need org mode for babel
-(require 'org)
 ;; Need package for package management.
 (require 'package)
-;; Need cl because some packages load with errors otherwise :(
+;; Need cl because some packages load with errors otherwise
 (require 'cl)
 ;; Get the emacs directory (same directory as this file).
 (defvar emacs-dir (file-name-directory (or load-file-name (buffer-file-name)))
@@ -31,6 +29,8 @@
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
+;; Need org mode for babel
+(require 'org)
 ;; This function will load an org mode file in this directory.
 (defun load-org-init-file (filename)
   (org-babel-load-file (expand-file-name filename conf-dir)))
@@ -47,21 +47,26 @@
     (unless (member (car file) disabled-module-list)
       (load-org-init-file (car file)))))
 
+;;(byte-recompile-directory ".")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; BEGIN AUTO-GENERATED SETTINGS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 90 :weight Light Condensed :family "Input Mono Condensed")))))
+(eval-after-load 'org
+  '(progn
+     (custom-set-variables
+      ;; custom-set-variables was added by Custom.
+      ;; If you edit it by hand, you could mess it up, so be careful.
+      ;; Your init file should contain only one such instance.
+      ;; If there is more than one, they won't work right.
+      )
+     (custom-set-faces
+      ;; custom-set-faces was added by Custom.
+      ;; If you edit it by hand, you could mess it up, so be careful.
+      ;; Your init file should contain only one such instance.
+      ;; If there is more than one, they won't work right.
+      '(default ((t (:height 105 :weight Normal :family "Inconsolata for Powerline")))))
+     (put 'downcase-region 'disabled nil)
+     (put 'upcase-region 'disabled nil)
+))
 ;;; init.el ends here
