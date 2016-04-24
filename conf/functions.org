@@ -105,15 +105,21 @@ Comment the current line if there's no active region."
 ;;
 ;; (global-set-key (kbd "C-c M-w") 'my/kill-ring-save-word)
 
-(defvar current-theme 0)
+(defvar current-theme 1)
+(load-theme 'greymatters t)
+(my/set-fringe-background)
 (defun my/theme-cycle-switch ()
   "Switch between stock theme and tao-yinyang theme."
   (interactive)
   (cond ((= current-theme 1)
-         (disable-theme 'solarized-dark)
+;;         (disable-theme 'solarized-dark)
+         (disable-theme 'greymatters)
+         (my/set-fringe-background)
          (setq current-theme 0))
         ((= current-theme 0)
-         (load-theme 'solarized-dark t)
+;;         (load-theme 'solarized-dark t)
+         (load-theme 'greymatters t)
+         (my/set-fringe-background)
          (setq current-theme 1))))
 
 (global-set-key (kbd "<f5>") 'my/theme-cycle-switch)

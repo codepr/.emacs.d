@@ -65,8 +65,22 @@
       ;; If you edit it by hand, you could mess it up, so be careful.
       ;; Your init file should contain only one such instance.
       ;; If there is more than one, they won't work right.
-      '(default ((t (:height 105 :weight Normal :family "Inconsolata for Powerline")))))
+      '(default ((t (:height 90 :weight Normal :family "Source Code Pro")))))
      (put 'downcase-region 'disabled nil)
      (put 'upcase-region 'disabled nil)
 ))
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("4d80487632a0a5a72737a7fc690f1f30266668211b17ba836602a8da890c2118" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:height 90 :weight Normal :family "Source Code Pro")))))

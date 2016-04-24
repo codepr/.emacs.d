@@ -6,7 +6,7 @@
 ;; Last Modified: 2016/03/21
 ;;; code:
 ;; general utilities packages
-(require-package '(autopair markdown-mode which-key expand-region solarized-theme php-mode))
+(require-package '(autopair markdown-mode which-key expand-region solarized-theme greymatters-theme php-mode))
 (require 'autopair)
 (require 'markdown-mode)
 (require 'which-key)
