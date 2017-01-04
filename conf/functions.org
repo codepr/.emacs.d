@@ -1,6 +1,7 @@
 #+begin_src emacs-lisp
 ;;; functions.org --- Codep's custom functions.
 ;;; Commentary:
+;; Last Modified: 2016/01/03
 ;; This file contain my personal emacs enhanced functions.
 ;;; code:
 
@@ -106,19 +107,23 @@ Comment the current line if there's no active region."
 ;; (global-set-key (kbd "C-c M-w") 'my/kill-ring-save-word)
 
 (defvar current-theme 1)
-(load-theme 'greymatters t)
+(defvar starting-theme 'base16-oceanicnext)
+;; (defvar starting-theme 'codep-atom-one-dark)
+(defvar ending-theme 'codep-atom-one-dark)
+(load-theme starting-theme t)
+
 (my/set-fringe-background)
 (defun my/theme-cycle-switch ()
   "Switch between stock theme and tao-yinyang theme."
   (interactive)
   (cond ((= current-theme 1)
-;;         (disable-theme 'solarized-dark)
-         (disable-theme 'greymatters)
+         (disable-theme starting-theme)
+         (load-theme ending-theme t)
          (my/set-fringe-background)
          (setq current-theme 0))
         ((= current-theme 0)
-;;         (load-theme 'solarized-dark t)
-         (load-theme 'greymatters t)
+         (disable-theme ending-theme)
+         (load-theme starting-theme t)
          (my/set-fringe-background)
          (setq current-theme 1))))
 
@@ -167,5 +172,6 @@ Comment the current line if there's no active region."
   "Recompile all startup files inside .emacs.d"
   (interactive)
   (byte-recompile-directory "~/.emacs.d" 0))
+
 ;;; functions.org ends here
 #+end_src

@@ -1,5 +1,13 @@
+recentf
 # Compiled
 *.elc
+*.eld
 
 # Packaging
 .cask
+.smex-items
+
+# Folders
+elpa
+auto-save-list
+

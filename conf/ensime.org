@@ -1,12 +1,24 @@
 #+begin_src emacs-lisp
-(require-package '(ensime scala-mode2))
-(require 'scala-mode2)
-(setq exec-path (append exec-path '("/usr/local/bin")))
-(setq exec-path (append exec-path '("/usr/local/sbin")))
+;;; ensime.el --- Codep's custom ensime settings, for Scala development.
+;;; Commentary:
+;; Author: Andrea Giacomo Baldan
+;; Created: 2016/03/01
+;; Last Modified: 2016/01/04
+;;; code:
+(require-package '(ensime scala-mode))
+(require 'scala-mode)
+(setq exec-path (append exec-path '("/usr/bin")))
+(setq exec-path (append exec-path '("/usr/sbin")))
+(setenv "PATH" (concat "/usr/local/bin/sbt/bin:" (getenv "PATH")))
+(setenv "PATH" (concat "/usr/local/bin/scala/bin:" (getenv "PATH")))
 (setenv "PATH" (shell-command-to-string "/bin/bash -c 'echo -n $PATH'"))
 (require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 (setq ensime-sem-high-enabled-p nil)
 (setq debug-on-error t)
 (setq ensime-typecheck-when-idle nil)
+(setq ensime-startup-snapshot-notification nil)
+
+;; (add-hook 'scala-mode-hook 'scala/maybe-start-ensime)
+
+;;; ensime.el ends here.
 #+end_src

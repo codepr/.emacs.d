@@ -3,15 +3,16 @@
 ;;; Commentary:
 ;; Author: Andrea Giacomo Baldan
 ;; Created: 2016/03/01
-;; Last Modified: 2016/03/21
+;; Last Modified: 2016/01/03
 ;;; code:
 ;; general utilities packages
-(require-package '(autopair markdown-mode which-key expand-region solarized-theme greymatters-theme php-mode))
+(require-package '(autopair markdown-mode which-key expand-region solarized-theme greymatters-theme base16-theme php-mode neotree))
 (require 'autopair)
 (require 'markdown-mode)
 (require 'which-key)
 (require 'uniquify)
-;; (require 'expand-region)
+(require 'neotree)
+(require 'expand-region)
 ;; start maximized
 (toggle-frame-maximized)
 (blink-cursor-mode -1)
@@ -92,7 +93,7 @@
 (setq sentence-end-double-space nil)
 ;; yes/no -> y/n
 (fset 'yes-or-no-p 'y-or-n-p)
-;; reduce frequency of garvage collector
+;; reduce frequency of garbage collector
 (setq gc-cons-threshold 50000000)
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
@@ -116,8 +117,8 @@
 ;; which-key helper
 (which-key-mode)
 ;; expand-region to C-;
-;; (global-set-key (kbd "C-.") 'er/expand-region)
-;; (global-set-key (kbd "C--") 'er/contract-region)
+(global-set-key (kbd "C-.") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (defun my/set-fringe-background ()
@@ -130,5 +131,14 @@
 (add-hook 'after-init-hook #'my/set-fringe-background)
 ;; abbrevs file
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
+(global-set-key "\C-x\C-m" 'helm-M-x)
+(add-to-list 'auto-mode-alist '("\\.avsc\\'" . javascript-mode))
+;; neotree toggle
+(global-set-key [f8] 'neotree-toggle)
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+			(setq python-indent 4)))
 ;;; editor.el ends here
 #+end_src

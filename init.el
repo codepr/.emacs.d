@@ -1,3 +1,4 @@
+
 ;;; init.el --- Codep's configuration entry point.
 ;;; Commentary:
 ;; This file contain my personal Emacs configuration
@@ -7,7 +8,7 @@
 ;; Need package for package management.
 (require 'package)
 ;; Need cl because some packages load with errors otherwise
-(require 'cl)
+(eval-when-compile (require 'cl))
 ;; Get the emacs directory (same directory as this file).
 (defvar emacs-dir (file-name-directory (or load-file-name (buffer-file-name)))
   "Code directory.")
@@ -65,7 +66,7 @@
       ;; If you edit it by hand, you could mess it up, so be careful.
       ;; Your init file should contain only one such instance.
       ;; If there is more than one, they won't work right.
-      '(default ((t (:height 90 :weight Normal :family "Source Code Pro")))))
+      '(default ((t (:height 100 :weight Normal :family "Monaco")))))
      (put 'downcase-region 'disabled nil)
      (put 'upcase-region 'disabled nil)
 ))
@@ -75,12 +76,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
+ '(package-selected-packages
    (quote
-    ("4d80487632a0a5a72737a7fc690f1f30266668211b17ba836602a8da890c2118" default))))
+    (magit anaconda-mode auctex ido-vertical-mode idomenu smex ido-ubiquitous helm-ag helm-projectile projectile helm flycheck ensime neotree php-mode base16-theme greymatters-theme solarized-theme expand-region which-key markdown-mode autopair company-emacs-eclim eclim org-page))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 90 :weight Normal :family "Source Code Pro")))))
+ '(default ((t (:height 100 :weight Normal :family "Monaco")))))
+(setq line-spacing 3)

@@ -1,5 +1,12 @@
 #+begin_src emacs-lisp
+;;; vc.el --- Codep's custom version control configuration
+;;; Commentary:
+;; Author: Andrea Giacomo Baldan
+;; Created: 2016/07/14
+;; Last Modified: 2017/01/04
+;;; code:
 (require-package '(magit))
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+;;; vc.el ends here
 #+end_src

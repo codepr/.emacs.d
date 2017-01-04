@@ -1,7 +1,14 @@
 #+begin_src emacs-lisp
+;;; snippets.el --- Codep's custom snippets configuration
+;;; Commentary:
+;; Author: Andrea Giacomo Baldan
+;; Created: 2016/07/14
+;; Last Modified: 2017/01/04
+;;; code:
 (require-package '(yasnippet))
 (require 'yasnippet)
 ;; snippets path
 (setq yas-snippet-dirs '("~/.emacs.d/yasnippet-snippets"))
-(yas-global-mode 1)
+;; (yas-global-mode 1)
+;;; snippets.el ends here
 #+end_src

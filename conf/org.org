@@ -1,4 +1,8 @@
 #+begin_src emacs-lisp
+;;; org.el --- Codep's configuration entry point for org files
+;;; Commentary:
+;; This file contain my personal Emacs configuration
+;;; code:
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-directory (expand-file-name "~/org"))
 (setq org-default-notes-file(concat org-directory "/notes.org"))
@@ -20,4 +24,6 @@
     (mapcar (lambda (x) (and (file-exists-p x) x))
             '("~/org/notes.org"
               "~/org/snippets.org"))))
+
+;;; org.el ends here
 #+end_src
