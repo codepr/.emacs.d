@@ -1,0 +1,28 @@
+#+begin_src emacs-lisp
+;;; eclim.el --- Codep's custom ac configuration.
+;;; Commentary:
+;; Author: Andrea Giacomo Baldan
+;; Created: 2016/03/01
+;; Last Modified: 2016/03/21
+;;; code:
+(require-package '(eclim company-emacs-eclim))
+(require 'eclim)
+(require 'eclimd)
+(require 'company-emacs-eclim)
+
+;; (global-eclim-mode)
+(add-hook 'java-mode-hook 'eclim-mode)
+
+(setq eclim-executable (or (executable-find "eclim") "/usr/lib/eclipse/eclim")
+        eclimd-executable (or (executable-find "eclimd") "/usr/lib/eclipse/eclimd")
+        eclimd-wait-for-process nil
+        eclimd-default-workspace "~/projects/workspace-eclim"
+        help-at-pt-display-when-idle t
+        help-at-pt-timer-delay 0.1)
+
+(help-at-pt-set-timer)
+
+(company-emacs-eclim-setup)
+(global-company-mode t)
+;;; eclim.el ends here
+#+end_src
