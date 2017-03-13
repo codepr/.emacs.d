@@ -4,6 +4,9 @@
 ;; This file contain my personal Emacs helm settings.
 ;;; code:
 (require-package '(helm projectile helm-projectile helm-ag))
+(setq tramp-ssh-controlmaster-options
+  "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+(require 'tramp)
 (require 'helm)
 (require 'helm-config)
 (require 'projectile)
@@ -45,5 +48,6 @@
 (helm-mode 1)
 (helm-projectile-on)
 
-;;; helm.org ends here
+(setq projectile-globally-ignored-files (append '("*.png" "*.jpg" "*.gif")))
+; helm.org ends here
 #+end_src

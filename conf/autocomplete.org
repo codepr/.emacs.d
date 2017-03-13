@@ -8,7 +8,7 @@
 ;;(require-package '(auto-complete))
 ;;(require 'auto-complete)
 ;;(require 'auto-complete-config)
-(require-package '(company))
+(require-package '(company company-anaconda))
 ;; ac
 (add-hook 'after-init-hook 'global-company-mode)
 ;; ac behaviour
@@ -18,11 +18,15 @@
      (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
      (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
      (define-key company-active-map (kbd "<backtab>") 'company-select-previous)))
-(setq company-auto-complete t)
+;; (setq company-auto-complete t)
+(setq company-require-match 'never)
 (setq company-frontends
       '(company-pseudo-tooltip-unless-just-one-frontend
         company-preview-frontend
         company-echo-metadata-frontend))
+
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-anaconda))
 ;; (ac-config-default)
 ;; (define-key ac-menu-map "\C-n" 'ac-next)
 ;; (define-key ac-menu-map "\C-p" 'ac-previous)

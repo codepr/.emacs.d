@@ -106,19 +106,29 @@ Comment the current line if there's no active region."
 ;; (global-set-key (kbd "C-c M-w") 'my/kill-ring-save-word)
 
 (defvar current-theme 1)
-(load-theme 'greymatters t)
+;; (defvar starting-theme 'tao-yin)
+;; (defvar starting-theme 'spacemacs-dark)
+(defvar starting-theme 'base16-apathy)
+;; (defvar starting-theme 'codep-atom-one-dark)
+;; (defvar starting-theme 'doom-one)
+;; (defvar starting-theme 'planet)
+;; (defvar starting-theme 'grandshell)
+;; (defvar starting-theme 'material)
+(defvar ending-theme 'spacemacs-light)
+(load-theme starting-theme t)
+
 (my/set-fringe-background)
 (defun my/theme-cycle-switch ()
   "Switch between stock theme and tao-yinyang theme."
   (interactive)
   (cond ((= current-theme 1)
-;;         (disable-theme 'solarized-dark)
-         (disable-theme 'greymatters)
+         (disable-theme starting-theme)
+         (load-theme ending-theme t)
          (my/set-fringe-background)
          (setq current-theme 0))
         ((= current-theme 0)
-;;         (load-theme 'solarized-dark t)
-         (load-theme 'greymatters t)
+         (disable-theme ending-theme)
+         (load-theme starting-theme t)
          (my/set-fringe-background)
          (setq current-theme 1))))
 
@@ -167,5 +177,29 @@ Comment the current line if there's no active region."
   "Recompile all startup files inside .emacs.d"
   (interactive)
   (byte-recompile-directory "~/.emacs.d" 0))
+
+;; (defun next-code-buffer ()
+;;   "Exclude temporary buffers * from next buffer command"
+;;   (interactive)
+;;   (let ((bread-crumb (buffer-name)))
+;;     (next-buffer)
+;;     (while
+;;       (and
+;;         (string-match-p "^\*" (buffer-name))
+;;         (not (equal bread-crumb (buffer-name))))
+;;       (next-buffer))))
+;; (global-set-key [remap next-buffer] 'next-code-buffer)
+;;
+;; (defun previous-code-buffer ()
+;;   "Exclude temporary buffers * from previous buffer command"
+;;   (interactive)
+;;   (let ((bread-crumb (buffer-name)))
+;;     (previous-buffer)
+;;     (while
+;;       (and
+;;         (string-match-p "^\*" (buffer-name))
+;;         (not (equal bread-crumb (buffer-name))))
+;;       (previous-buffer))))
+;; (global-set-key [remap previous-buffer] 'next-code-buffer)
 ;;; functions.org ends here
 #+end_src

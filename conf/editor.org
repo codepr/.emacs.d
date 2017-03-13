@@ -6,11 +6,12 @@
 ;; Last Modified: 2016/03/21
 ;;; code:
 ;; general utilities packages
-(require-package '(autopair markdown-mode which-key expand-region solarized-theme greymatters-theme php-mode))
+(require-package '(autopair markdown-mode which-key expand-region solarized-theme greymatters-theme php-mode neotree))
 (require 'autopair)
 (require 'markdown-mode)
 (require 'which-key)
 (require 'uniquify)
+(require 'neotree)
 ;; (require 'expand-region)
 ;; start maximized
 (toggle-frame-maximized)
@@ -130,5 +131,14 @@
 (add-hook 'after-init-hook #'my/set-fringe-background)
 ;; abbrevs file
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
+(global-set-key "\C-x\C-m" 'helm-M-x)
+(add-to-list 'auto-mode-alist '("\\.avsc\\'" . javascript-mode))
+;; neotree toggle
+(global-set-key [f8] 'neotree-toggle)
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+			(setq python-indent 4)))
 ;;; editor.el ends here
 #+end_src

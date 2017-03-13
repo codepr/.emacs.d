@@ -8,34 +8,35 @@
 (load "auctex.el" nil t t)
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
-;; (add-to-list 'org-latex-classes
-;;              '("article"
-;;                "\\documentclass[10pt,a4paper]{article}
-;;                 \\usepackage[utf8]{inputenc}
-;;                 \\usepackage{alltt}
-;;                 \\usepackage{caption}
-;;                 \\usepackage{hyperref}
-;;                 \\usepackage{listings}
-;;                 \\usepackage{xcolor}
-;;                 \\usepackage{graphicx}
-;;                 \\usepackage{lmodern}
-;;                 \\usepackage[top=2in, bottom=1.5in, left=0.7in, right=0.7in]{geometry}
-;;                 \\DeclareCaptionFormat{listing}{\\rule{\\dimexpr\\textwidth+17pt\\relax}{0.4}\\vskip1pt#1#2#3}
-;;                 \\captionsetup[lstlisting]{singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
-;;                 \\definecolor{wine-stain}{rgb}{0.0,0.0,0.4}
-;;                 \\hypersetup{colorlinks,linkcolor=wine-stain,linktoc=all}
-;;                 [NO-DEFAULT-PACKAGES]
-;;                 [NO-PACKAGES]"
-;;                ("\\section{%s}" . "\\section*{%s}")
-;;                ("\\subsection{%s}" . "\\subsection*{%s}")
-;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-;;                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-;;                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+ (add-to-list 'org-latex-classes
+              '("article"
+                "\\documentclass[10pt,a4paper]{article}
+                 \\usepackage[utf8]{inputenc}
+                 \\usepackage{alltt}
+                 \\usepackage{caption}
+                 \\usepackage{hyperref}
+                 \\usepackage{listings}
+                 \\usepackage{xcolor}
+                 \\usepackage{graphicx}
+                 \\usepackage{lmodern}
+                 \\usepackage{fancyhdr}
+                 \\usepackage[top=2in, bottom=1.5in, left=0.7in, right=0.7in]{geometry}
+                 \\DeclareCaptionFormat{listing}{\\rule{\\dimexpr\\textwidth+17pt\\relax}{0.4}\\vskip1pt#1#2#3}
+                 \\captionsetup[lstlisting]{singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+                 \\definecolor{wine-stain}{rgb}{0.0,0.0,0.4}
+                 \\hypersetup{colorlinks,linkcolor=wine-stain,urlcolor=blue,linktoc=all}
+                 [NO-DEFAULT-PACKAGES]
+                 [NO-PACKAGES]"
+                ("\\section{%s}" . "\\section*{%s}")
+                ("\\subsection{%s}" . "\\subsection*{%s}")
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 ;; PDFs visited in Org-mode are opened in Okular (and not in the default choice) http://stackoverflow.com/a/8836108/789593
 (add-hook 'org-mode-hook
           '(lambda ()
              (delete '("\\.pdf\\'" . default) org-file-apps)
-             (add-to-list 'org-file-apps '("\\.pdf\\'" . "okular %s"))))
+             (add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura %s"))))
 ;;; latex.org ends here
 #+end_src
